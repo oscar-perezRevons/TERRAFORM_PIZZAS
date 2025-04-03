@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ds_tlb_pizzas",
+						"referenceName": "ds_tlb_order_details",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"

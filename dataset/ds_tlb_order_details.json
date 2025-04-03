@@ -1,5 +1,5 @@
 {
-	"name": "ds_tlb_pizzas",
+	"name": "ds_tlb_order_details",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sql_db_pizzas",
