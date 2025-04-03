@@ -1,5 +1,5 @@
 {
-	"name": "df_dim_order_detail",
+	"name": "df_dim_pizza_type",
 	"properties": {
 		"folder": {
 			"name": "DW"
@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ds_tlb_order_details",
+						"referenceName": "ds_tlb_pizza_types",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ds_dim_order_detail",
+						"referenceName": "ds_dim_pizza_type",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -31,24 +31,22 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          order_details_id as integer,",
-				"          order_id as integer,",
-				"          pizza_id as string,",
-				"          quantity as integer",
+				"          pizza_type_id as string,",
+				"          name as string,",
+				"          category as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT DISTINCT order_details_id, order_id, pizza_id, quantity FROM [dbo].[tbl_order_details]',",
+				"     query: 'SELECT DISTINCT pizza_type_id, name, category FROM [dbo].[tbl_pizza_types]',",
 				"     format: 'query') ~> source1",
-				"source1 sort(asc(order_details_id, true)) ~> sort1",
+				"source1 sort(asc(pizza_type_id, true)) ~> sort1",
 				"sort1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          order_details_id as integer,",
-				"          order_id as integer,",
-				"          pizza_id as string,",
-				"          quantity as integer",
+				"          pizza_type_id as string,",
+				"          name as string,",
+				"          category as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -59,10 +57,9 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          order_details_id,",
-				"          order_id,",
-				"          pizza_id,",
-				"          quantity",
+				"          pizza_type_id,",
+				"          name,",
+				"          category",
 				"     )) ~> sink1"
 			]
 		}
