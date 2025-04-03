@@ -1,0 +1,38 @@
+{
+	"name": "ds_dim_pizza",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_dw_pizzas",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DW"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "pizza_id",
+				"type": "varchar"
+			},
+			{
+				"name": "pizza_type_id",
+				"type": "varchar"
+			},
+			{
+				"name": "size",
+				"type": "varchar"
+			},
+			{
+				"name": "price",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_PIZZA"
+		}
+	}
+}

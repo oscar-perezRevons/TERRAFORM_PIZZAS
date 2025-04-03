@@ -1,0 +1,39 @@
+{
+	"name": "ds_dim_order_detail",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_dw_pizzas",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DW"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "order_details_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "order_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "pizza_id",
+				"type": "varchar"
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_ORDER_DETAIL"
+		}
+	}
+}
